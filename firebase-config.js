@@ -5,12 +5,12 @@
  */
 window.ESTUDOS_IA_FIREBASE = {
   firebaseConfig: {
-    apiKey: "",
-    authDomain: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+    apiKey: "AIzaSyBwJ0l8eVDJiuYUf_s_0r9SJXvXcIVfkwY",
+    authDomain: "estudo-ia-17f3a.firebaseapp.com",
+    projectId: "estudo-ia-17f3a",
+    storageBucket: "estudo-ia-17f3a.firebasestorage.app",
+    messagingSenderId: "932616978524",
+    appId: "1:932616978524:web:a235b6c620de4e1562a699"
   },
 
   // Preencha após o primeiro login. O UID aparece no Firebase Authentication.
