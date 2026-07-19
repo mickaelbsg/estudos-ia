@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Portal de estudos, ideias, vídeos e ferramentas de inteligência artificial.">
   <title>Estudos sobre IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260719-3">
-  <link rel="stylesheet" href="videos.css?v=20260719-3">
+  <link rel="stylesheet" href="styles.css?v=20260719-4">
+  <link rel="stylesheet" href="videos.css?v=20260719-4">
 </head>
 <body>
   <div class="ambient"></div>
@@ -79,22 +79,18 @@
         <div class="section-title">
           <div>
             <span class="eyebrow">Aprendizado em vídeo</span>
-            <h2>Vídeos sobre Inteligência Artificial</h2>
-            <p>Conteúdo do canal organizado entre vídeos completos e Shorts.</p>
+            <h2>Biblioteca de Vídeos</h2>
+            <p>Vídeos completos e Shorts de canais selecionados sobre inteligência artificial.</p>
           </div>
         </div>
 
-        <section class="channel-banner">
-          <img id="channelAvatar" class="channel-avatar" alt="Canal Mickael Bergson">
-          <div class="channel-copy">
-            <h2 id="channelTitle">Mickael Bergson | AIOps Specialist</h2>
-            <p id="channelDescription">@mickaelbsg · IA, AIOps, Vibecoding, agentes e infraestrutura.</p>
-          </div>
-          <a id="channelLink" class="channel-link" href="https://www.youtube.com/@mickaelbsg" target="_blank" rel="noopener">Abrir canal no YouTube ↗</a>
-        </section>
+        <div id="channelList" class="channel-library"></div>
 
         <div class="video-toolbar">
-          <label class="video-search">⌕ <input id="videoSearch" type="search" placeholder="Pesquisar por título ou assunto..."></label>
+          <label class="video-search">⌕ <input id="videoSearch" type="search" placeholder="Pesquisar por título, assunto ou canal..."></label>
+          <select id="videoChannel" class="video-channel-select" aria-label="Filtrar por canal">
+            <option value="all">Todos os canais</option>
+          </select>
           <div class="video-filters" role="group" aria-label="Filtrar vídeos">
             <button class="video-filter active" data-video-filter="all">Todos</button>
             <button class="video-filter" data-video-filter="long">Completos</button>
@@ -121,9 +117,10 @@
   </div>
 
   <div id="modalBackdrop" class="modal-backdrop"><div id="modal" class="modal"></div></div>
-  <script src="data.js?v=20260719-3"></script>
-  <script src="videos.js?v=20260719-3"></script>
-  <script src="app.js?v=20260719-3"></script>
-  <script src="videos-app.js?v=20260719-3"></script>
+  <script src="data.js?v=20260719-4"></script>
+  <script src="videos.js?v=20260719-4"></script>
+  <script src="maestros-videos.js?v=20260719-4"></script>
+  <script src="app.js?v=20260719-4"></script>
+  <script src="videos-app.js?v=20260719-4"></script>
 </body>
 </html>
