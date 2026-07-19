@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Portal de estudos, ideias, vídeos e ferramentas de inteligência artificial.">
   <title>Estudos sobre IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260719-4">
-  <link rel="stylesheet" href="videos.css?v=20260719-4">
+  <link rel="stylesheet" href="styles.css?v=20260719-5">
+  <link rel="stylesheet" href="videos.css?v=20260719-5">
 </head>
 <body>
   <div class="ambient"></div>
@@ -31,7 +31,11 @@
     <main>
       <header class="topbar">
         <div><span id="eyebrow" class="eyebrow">Base de conhecimento</span><h1 id="pageTitle">Painel de IA</h1></div>
-        <div class="top-actions"><button id="favoritesButton" class="ghost desktop">☆ Favoritos</button><button id="menuButton" class="ghost mobile">☰</button></div>
+        <div class="top-actions">
+          <button id="favoritesButton" class="ghost desktop">☆ Favoritos</button>
+          <button id="videoLoginButton" class="ghost auth-button" type="button">Entrar com Google</button>
+          <button id="menuButton" class="ghost mobile">☰</button>
+        </div>
       </header>
 
       <section id="page-inicio" class="page active">
@@ -76,12 +80,23 @@
       </section>
 
       <section id="page-videos" class="page">
-        <div class="section-title">
+        <div class="section-title video-title-row">
           <div>
             <span class="eyebrow">Aprendizado em vídeo</span>
             <h2>Biblioteca de Vídeos</h2>
             <p>Vídeos completos e Shorts de canais selecionados sobre inteligência artificial.</p>
           </div>
+          <div id="videoAuthBadge" class="video-auth-badge">Modo visitante</div>
+        </div>
+
+        <div id="firebaseStatus" class="firebase-status" hidden></div>
+
+        <div id="videoAdminBar" class="video-admin-bar" hidden>
+          <button id="addVideoButton" class="primary" type="button">＋ Adicionar vídeo</button>
+          <button id="addChannelButton" class="ghost" type="button">＋ Adicionar canal</button>
+          <button id="manageCategoriesButton" class="ghost" type="button">Categorias</button>
+          <button id="managePlaylistsButton" class="ghost" type="button">Playlists</button>
+          <button id="migrateVideosButton" class="ghost" type="button">Migrar dados atuais</button>
         </div>
 
         <div id="channelList" class="channel-library"></div>
@@ -90,6 +105,12 @@
           <label class="video-search">⌕ <input id="videoSearch" type="search" placeholder="Pesquisar por título, assunto ou canal..."></label>
           <select id="videoChannel" class="video-channel-select" aria-label="Filtrar por canal">
             <option value="all">Todos os canais</option>
+          </select>
+          <select id="videoCategory" class="video-channel-select" aria-label="Filtrar por categoria">
+            <option value="all">Todas as categorias</option>
+          </select>
+          <select id="videoPlaylist" class="video-channel-select" aria-label="Filtrar por playlist">
+            <option value="all">Todas as playlists</option>
           </select>
           <div class="video-filters" role="group" aria-label="Filtrar vídeos">
             <button class="video-filter active" data-video-filter="all">Todos</button>
@@ -117,10 +138,11 @@
   </div>
 
   <div id="modalBackdrop" class="modal-backdrop"><div id="modal" class="modal"></div></div>
-  <script src="data.js?v=20260719-4"></script>
-  <script src="videos.js?v=20260719-4"></script>
-  <script src="maestros-videos.js?v=20260719-4"></script>
-  <script src="app.js?v=20260719-4"></script>
-  <script src="videos-app.js?v=20260719-4"></script>
+  <script src="data.js?v=20260719-5"></script>
+  <script src="videos.js?v=20260719-5"></script>
+  <script src="maestros-videos.js?v=20260719-5"></script>
+  <script src="firebase-config.js?v=20260719-5"></script>
+  <script src="app.js?v=20260719-5"></script>
+  <script type="module" src="videos-app.js?v=20260719-5"></script>
 </body>
 </html>
