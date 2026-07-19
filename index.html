@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Portal de estudos, ideias, vídeos e ferramentas de inteligência artificial.">
   <title>Estudos sobre IA</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="videos.css">
+  <link rel="stylesheet" href="styles.css?v=20260719-3">
+  <link rel="stylesheet" href="videos.css?v=20260719-3">
 </head>
 <body>
   <div class="ambient"></div>
@@ -16,6 +16,7 @@
       <nav>
         <button class="nav active" data-page="inicio"><span>⌂</span>Início</button>
         <button class="nav" data-page="ferramentas"><span>◈</span>Ferramentas</button>
+        <button class="nav" data-page="videos"><span>▶</span>Vídeos</button>
         <button class="nav" data-page="ideias"><span>✦</span>Ideias</button>
         <button class="nav" data-page="estudos"><span>◎</span>Estudos</button>
       </nav>
@@ -74,6 +75,37 @@
         <div id="tools" class="tool-grid"></div>
       </section>
 
+      <section id="page-videos" class="page">
+        <div class="section-title">
+          <div>
+            <span class="eyebrow">Aprendizado em vídeo</span>
+            <h2>Vídeos sobre Inteligência Artificial</h2>
+            <p>Conteúdo do canal organizado entre vídeos completos e Shorts.</p>
+          </div>
+        </div>
+
+        <section class="channel-banner">
+          <img id="channelAvatar" class="channel-avatar" alt="Canal Mickael Bergson">
+          <div class="channel-copy">
+            <h2 id="channelTitle">Mickael Bergson | AIOps Specialist</h2>
+            <p id="channelDescription">@mickaelbsg · IA, AIOps, Vibecoding, agentes e infraestrutura.</p>
+          </div>
+          <a id="channelLink" class="channel-link" href="https://www.youtube.com/@mickaelbsg" target="_blank" rel="noopener">Abrir canal no YouTube ↗</a>
+        </section>
+
+        <div class="video-toolbar">
+          <label class="video-search">⌕ <input id="videoSearch" type="search" placeholder="Pesquisar por título ou assunto..."></label>
+          <div class="video-filters" role="group" aria-label="Filtrar vídeos">
+            <button class="video-filter active" data-video-filter="all">Todos</button>
+            <button class="video-filter" data-video-filter="long">Completos</button>
+            <button class="video-filter" data-video-filter="short">Shorts</button>
+          </div>
+        </div>
+
+        <div id="videoSummary" class="video-summary"></div>
+        <div id="videoGrid" class="video-grid"></div>
+      </section>
+
       <section id="page-ideias" class="page">
         <div class="section-title"><div><span class="eyebrow">Produtos e experimentos</span><h2>Ideias em desenvolvimento</h2><p>Projetos que podem ser transformados em agentes e produtos reais.</p></div></div>
         <div id="ideas" class="content-grid"></div>
@@ -89,9 +121,9 @@
   </div>
 
   <div id="modalBackdrop" class="modal-backdrop"><div id="modal" class="modal"></div></div>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
-  <script src="videos.js"></script>
-  <script src="videos-app.js"></script>
+  <script src="data.js?v=20260719-3"></script>
+  <script src="videos.js?v=20260719-3"></script>
+  <script src="app.js?v=20260719-3"></script>
+  <script src="videos-app.js?v=20260719-3"></script>
 </body>
 </html>
