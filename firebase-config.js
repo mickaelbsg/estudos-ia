@@ -14,10 +14,10 @@ window.ESTUDOS_IA_FIREBASE = {
     measurementId: "G-NEJL3ZG1XG"
   },
 
-  // Preencha após o primeiro login. O UID aparece no Firebase Authentication.
-  adminUids: [],
+  // UID da única conta autorizada a usar o CRUD no portal.
+  adminUids: ["vXh7T43kJxUEcmZzKXemYfdclRx1"],
 
   // Lista opcional usada somente para liberar a interface administrativa.
-  // A segurança real continua nas regras do Firestore, preferencialmente por UID.
+  // A segurança real continua nas regras do Firestore, por UID.
   adminEmails: []
 };
