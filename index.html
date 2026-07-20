@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Portal de estudos, ideias, vídeos e ferramentas de inteligência artificial.">
   <title>Estudos sobre IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260719-9">
+  <link rel="stylesheet" href="styles.css?v=20260720-1">
   <link rel="stylesheet" href="videos.css?v=20260719-9">
 </head>
 <body>
@@ -19,6 +19,7 @@
         <button class="nav" data-page="videos"><span>▶</span>Vídeos</button>
         <button class="nav" data-page="ideias"><span>✦</span>Ideias</button>
         <button class="nav" data-page="estudos"><span>◎</span>Estudos</button>
+        <button class="nav" data-page="prompts"><span>✎</span>Prompts</button>
       </nav>
       <div class="side-note">
         <strong>Fonte de consulta</strong>
@@ -34,10 +35,43 @@
       <section id="page-videos" class="page"><div class="section-title video-title-row"><div><span class="eyebrow">Aprendizado em vídeo</span><h2>Biblioteca de Vídeos</h2><p>Vídeos completos e Shorts de canais selecionados sobre inteligência artificial.</p></div><div id="videoAuthBadge" class="video-auth-badge">Modo visitante</div></div><div id="firebaseStatus" class="firebase-status" hidden></div><div id="videoAdminBar" class="video-admin-bar" hidden><button id="addVideoButton" class="primary" type="button">＋ Adicionar vídeo</button><button id="addChannelButton" type="button" hidden aria-hidden="true"></button><button id="manageCategoriesButton" class="ghost" type="button">Categorias</button><button id="managePlaylistsButton" class="ghost" type="button">Playlists</button><button id="migrateVideosButton" class="ghost" type="button">Migrar dados atuais</button></div><div id="channelList" class="channel-library"></div><div class="video-toolbar"><label class="video-search">⌕ <input id="videoSearch" type="search" placeholder="Pesquisar por título, assunto ou canal..."></label><select id="videoChannel" class="video-channel-select" aria-label="Filtrar por canal"><option value="all">Todos os canais</option></select><select id="videoCategory" class="video-channel-select" aria-label="Filtrar por categoria"><option value="all">Todas as categorias</option></select><select id="videoPlaylist" class="video-channel-select" aria-label="Filtrar por playlist"><option value="all">Todas as playlists</option></select><div class="video-filters" role="group" aria-label="Filtrar vídeos"><button class="video-filter active" data-video-filter="all">Todos</button><button class="video-filter" data-video-filter="long">Completos</button><button class="video-filter" data-video-filter="short">Shorts</button></div></div><div id="videoSummary" class="video-summary"></div><div id="videoGrid" class="video-grid"></div></section>
       <section id="page-ideias" class="page"><div class="section-title"><div><span class="eyebrow">Produtos e experimentos</span><h2>Ideias em desenvolvimento</h2><p>Projetos que podem ser transformados em agentes e produtos reais.</p></div></div><div id="ideas" class="content-grid"></div></section>
       <section id="page-estudos" class="page"><div class="section-title"><div><span class="eyebrow">Aprendizado organizado</span><h2>Trilhas de estudo</h2><p>Assuntos organizados para evoluir a base técnica sem estudar de forma solta.</p></div></div><div id="tracks" class="content-grid"></div></section>
+      <section id="page-prompts" class="page">
+        <div class="prompt-intro">
+          <span class="eyebrow">O que aprendemos</span>
+          <h2>Definir o papel da IA ajuda, mas não faz milagre.</h2>
+          <p>Há pessoas que tratam a definição de papel como essencial e outras que dizem que é bobagem. As duas opiniões podem estar parcialmente corretas porque estão falando de usos diferentes.</p>
+          <div class="prompt-lessons">
+            <article><strong>Quando vale a pena</strong><p>O papel é útil quando define perspectiva, responsabilidade, comportamento e limites. Exemplo: “Atue como suporte N1. Use apenas procedimentos documentados e escale casos sem solução conhecida.”</p></article>
+            <article><strong>Quando vira enfeite</strong><p>Frases como “você é o maior especialista do mundo, genial e premiado” quase não acrescentam informação operacional. Elas deixam o prompt maior, mas não necessariamente melhor.</p></article>
+            <article><strong>Quando pode atrapalhar</strong><p>Uma persona excessivamente rígida pode limitar alternativas, induzir confiança exagerada ou fazer a IA insistir em uma única perspectiva. O papel deve orientar, não aprisionar a resposta.</p></article>
+          </div>
+          <blockquote>O papel é uma camada do prompt. Objetivo, contexto, tarefas, restrições, fontes, critérios de qualidade e formato de saída costumam ter mais impacto.</blockquote>
+        </div>
+
+        <div class="section-title"><div><span class="eyebrow">Ferramenta prática</span><h2>Gerador de prompts</h2><p>Preencha somente os campos necessários. O formulário monta uma instrução organizada e pronta para copiar.</p></div></div>
+        <div class="prompt-builder">
+          <form id="promptForm" class="prompt-form">
+            <label><span>Papel da IA <small>opcional</small></span><input id="promptRole" placeholder="Ex.: engenheiro de infraestrutura sênior"></label>
+            <label><span>Objetivo <small>obrigatório</small></span><textarea id="promptObjective" required placeholder="Qual resultado você quer obter?"></textarea></label>
+            <label><span>Contexto</span><textarea id="promptContext" placeholder="Ambiente, público, tecnologias, situação atual e informações relevantes."></textarea></label>
+            <label><span>Tarefas</span><textarea id="promptTasks" placeholder="Liste o que a IA deve analisar, produzir ou executar."></textarea></label>
+            <label><span>Limites e restrições</span><textarea id="promptLimits" placeholder="O que não pode fazer? Quais regras, riscos, custos ou tecnologias devem ser respeitados?"></textarea></label>
+            <label><span>Critérios de qualidade</span><textarea id="promptCriteria" placeholder="Como saberemos que a resposta ficou boa?"></textarea></label>
+            <label><span>Formato da resposta</span><input id="promptFormat" placeholder="Ex.: tabela com problema, impacto, correção e prioridade"></label>
+            <label><span>Tom e linguagem</span><input id="promptTone" placeholder="Ex.: direto, técnico e em português do Brasil"></label>
+            <div class="prompt-actions"><button class="primary" type="submit">Gerar prompt</button><button id="clearPrompt" class="ghost" type="button">Limpar</button></div>
+          </form>
+          <div class="prompt-result">
+            <div class="prompt-result-head"><div><span class="eyebrow">Resultado</span><h3>Prompt gerado</h3></div><button id="copyPrompt" class="ghost" type="button">Copiar prompt</button></div>
+            <textarea id="promptOutput" readonly placeholder="O prompt gerado aparecerá aqui..."></textarea>
+            <p class="prompt-tip">Revise o resultado antes de usar. Um bom prompt não elimina a necessidade de verificar fatos, código, decisões e riscos.</p>
+          </div>
+        </div>
+      </section>
       <footer>Estudos sobre IA · Base viva de conhecimento</footer>
     </main>
   </div>
   <div id="modalBackdrop" class="modal-backdrop"><div id="modal" class="modal"></div></div>
-  <script src="data.js?v=20260719-9"></script><script src="videos.js?v=20260719-9"></script><script src="maestros-videos.js?v=20260719-9"></script><script src="firebase-config.js?v=20260719-9"></script><script src="app.js?v=20260719-9"></script><script type="module" src="videos-app.js?v=20260719-9"></script>
+  <script src="data.js?v=20260719-9"></script><script src="videos.js?v=20260719-9"></script><script src="maestros-videos.js?v=20260719-9"></script><script src="firebase-config.js?v=20260719-9"></script><script src="app.js?v=20260720-1"></script><script type="module" src="videos-app.js?v=20260719-9"></script>
 </body>
 </html>
