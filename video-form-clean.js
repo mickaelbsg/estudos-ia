@@ -8,7 +8,10 @@ function simplifyVideoForm() {
     const field = form.elements[name];
     if (!field) return;
     const wrapper = field.closest('label');
-    if (wrapper) wrapper.hidden = true;
+    if (wrapper) {
+      wrapper.hidden = true;
+      wrapper.style.display = 'none';
+    }
   });
 
   if (form.elements.channel) {
@@ -20,7 +23,7 @@ function simplifyVideoForm() {
     form.elements.channel.value = 'externo';
   }
 
-  if (form.elements.type && !form.elements.type.value) form.elements.type.value = 'long';
+  if (form.elements.type) form.elements.type.value = 'long';
   if (form.elements.date) form.elements.date.value = '';
   if (form.elements.views) form.elements.views.value = '0';
   if (form.elements.playlist) form.elements.playlist.value = '';
