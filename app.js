@@ -95,23 +95,31 @@ function renderTracks(){
 function generatePrompt(){
   const role=$('#promptRole')?.value.trim();
   const objective=$('#promptObjective')?.value.trim();
+  const audience=$('#promptAudience')?.value.trim();
   const context=$('#promptContext')?.value.trim();
   const tasks=$('#promptTasks')?.value.trim();
+  const relations=$('#promptRelations')?.value.trim();
   const limits=$('#promptLimits')?.value.trim();
+  const sources=$('#promptSources')?.value.trim();
   const criteria=$('#promptCriteria')?.value.trim();
+  const escalation=$('#promptEscalation')?.value.trim();
   const format=$('#promptFormat')?.value.trim();
   const tone=$('#promptTone')?.value.trim();
   const parts=[];
 
   if(role)parts.push(`Atue como ${role}.`);
   if(objective)parts.push(`\nObjetivo:\n${objective}`);
+  if(audience)parts.push(`\nPúblico ou interessado:\n${audience}`);
   if(context)parts.push(`\nContexto:\n${context}`);
-  if(tasks)parts.push(`\nTarefas:\n${tasks}`);
+  if(tasks)parts.push(`\nTarefas e sequência:\n${tasks}`);
+  if(relations)parts.push(`\nRelações e prioridades:\n${relations}`);
   if(limits)parts.push(`\nLimites e restrições:\n${limits}`);
-  if(criteria)parts.push(`\nCritérios de qualidade:\n${criteria}`);
+  if(sources)parts.push(`\nFontes e dados permitidos:\n${sources}`);
+  if(criteria)parts.push(`\nCritérios de qualidade e conclusão:\n${criteria}`);
+  if(escalation)parts.push(`\nCondições de parada ou escalonamento:\n${escalation}`);
   if(format)parts.push(`\nFormato da resposta:\n${format}`);
   if(tone)parts.push(`\nTom e linguagem:\n${tone}`);
-  parts.push('\nNão invente informações. Quando faltar contexto, informe claramente as suposições adotadas.');
+  parts.push('\nMantenha todas as decisões alinhadas ao objetivo, ao contexto, às prioridades e aos limites definidos. Não invente informações. Quando houver instruções conflitantes, dados ausentes ou risco relevante, sinalize isso claramente antes de prosseguir.');
 
   $('#promptOutput').value=parts.join('').trim();
 }
