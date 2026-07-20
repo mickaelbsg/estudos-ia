@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Portal de estudos, ideias, vídeos e ferramentas de inteligência artificial.">
   <title>Estudos sobre IA</title>
-  <link rel="stylesheet" href="styles.css?v=20260720-1">
+  <link rel="stylesheet" href="styles.css?v=20260720-2">
   <link rel="stylesheet" href="videos.css?v=20260719-9">
   <link rel="stylesheet" href="prompts.css?v=20260720-1">
 </head>
@@ -39,25 +39,32 @@
       <section id="page-prompts" class="page">
         <div class="prompt-intro">
           <span class="eyebrow">O que aprendemos</span>
-          <h2>Definir o papel da IA ajuda, mas não faz milagre.</h2>
-          <p>Há pessoas que tratam a definição de papel como essencial e outras que dizem que é bobagem. As duas opiniões podem estar parcialmente corretas porque estão falando de usos diferentes.</p>
+          <h2>Um bom prompt funciona como um roteiro operacional.</h2>
+          <p>Definir o papel da IA ajuda, mas o resultado melhora de verdade quando todas as partes do pedido se conectam. A IA precisa compreender quem ela representa, qual resultado deve alcançar, para quem está respondendo, quais informações pode usar, quais limites deve respeitar e como saber se terminou corretamente.</p>
           <div class="prompt-lessons">
-            <article><strong>Quando vale a pena</strong><p>O papel é útil quando define perspectiva, responsabilidade, comportamento e limites. Exemplo: “Atue como suporte N1. Use apenas procedimentos documentados e escale casos sem solução conhecida.”</p></article>
-            <article><strong>Quando vira enfeite</strong><p>Frases como “você é o maior especialista do mundo, genial e premiado” quase não acrescentam informação operacional. Elas deixam o prompt maior, mas não necessariamente melhor.</p></article>
-            <article><strong>Quando pode atrapalhar</strong><p>Uma persona excessivamente rígida pode limitar alternativas, induzir confiança exagerada ou fazer a IA insistir em uma única perspectiva. O papel deve orientar, não aprisionar a resposta.</p></article>
+            <article><strong>Papel com responsabilidade</strong><p>O papel deve definir perspectiva, responsabilidade e autoridade. “Atue como suporte N1” é útil quando também informa o que pode resolver e quando deve escalar.</p></article>
+            <article><strong>Objetivo e público</strong><p>Explique o resultado esperado e quem vai utilizar a resposta. A mesma análise muda quando é destinada a um técnico, diretor, cliente ou iniciante.</p></article>
+            <article><strong>Contexto relevante</strong><p>Inclua ambiente, histórico, tecnologias, situação atual e informações necessárias. Contexto não é contar tudo: é fornecer o que muda a decisão.</p></article>
+            <article><strong>Limites claros</strong><p>Defina o que não pode ser feito, riscos aceitáveis, custos, tecnologias permitidas e ações que exigem aprovação. Isso reduz desvios e decisões perigosas.</p></article>
+            <article><strong>Fontes e verdade</strong><p>Indique documentos, dados ou fontes que devem ser usados. Determine que a IA não invente informações e sinalize dúvidas, conflitos ou dados ausentes.</p></article>
+            <article><strong>Critério de conclusão</strong><p>Explique como avaliar a qualidade e quando a tarefa está concluída. Sem isso, a IA pode produzir algo bonito, mas incompleto ou fora do objetivo.</p></article>
           </div>
-          <blockquote>O papel é uma camada do prompt. Objetivo, contexto, tarefas, restrições, fontes, critérios de qualidade e formato de saída costumam ter mais impacto.</blockquote>
+          <blockquote>As partes precisam formar uma cadeia lógica: papel → objetivo → contexto → tarefas → limites → fontes → critérios → formato. Quando uma parte contradiz outra, a IA tende a improvisar ou sair do roteiro.</blockquote>
         </div>
 
-        <div class="section-title"><div><span class="eyebrow">Ferramenta prática</span><h2>Gerador de prompts</h2><p>Preencha somente os campos necessários. O formulário monta uma instrução organizada e pronta para copiar.</p></div></div>
+        <div class="section-title"><div><span class="eyebrow">Ferramenta prática</span><h2>Gerador de prompts</h2><p>Preencha apenas o que for relevante. O formulário organiza as informações em uma instrução clara, conectada e pronta para revisar.</p></div></div>
         <div class="prompt-builder">
           <form id="promptForm" class="prompt-form">
             <label><span>Papel da IA <small>opcional</small></span><input id="promptRole" placeholder="Ex.: engenheiro de infraestrutura sênior"></label>
-            <label><span>Objetivo <small>obrigatório</small></span><textarea id="promptObjective" required placeholder="Qual resultado você quer obter?"></textarea></label>
-            <label><span>Contexto</span><textarea id="promptContext" placeholder="Ambiente, público, tecnologias, situação atual e informações relevantes."></textarea></label>
-            <label><span>Tarefas</span><textarea id="promptTasks" placeholder="Liste o que a IA deve analisar, produzir ou executar."></textarea></label>
+            <label><span>Objetivo <small>obrigatório</small></span><textarea id="promptObjective" required placeholder="Qual resultado final você quer obter?"></textarea></label>
+            <label><span>Público ou interessado</span><textarea id="promptAudience" placeholder="Quem vai usar a resposta? Qual conhecimento, necessidade ou interesse essa pessoa possui?"></textarea></label>
+            <label><span>Contexto</span><textarea id="promptContext" placeholder="Ambiente, histórico, tecnologias, situação atual e fatos relevantes."></textarea></label>
+            <label><span>Tarefas e sequência</span><textarea id="promptTasks" placeholder="Liste o que deve ser feito e, quando necessário, a ordem das etapas."></textarea></label>
+            <label><span>Relações e prioridades</span><textarea id="promptRelations" placeholder="Explique dependências, o que tem prioridade e como as partes se conectam."></textarea></label>
             <label><span>Limites e restrições</span><textarea id="promptLimits" placeholder="O que não pode fazer? Quais regras, riscos, custos ou tecnologias devem ser respeitados?"></textarea></label>
-            <label><span>Critérios de qualidade</span><textarea id="promptCriteria" placeholder="Como saberemos que a resposta ficou boa?"></textarea></label>
+            <label><span>Fontes e dados permitidos</span><textarea id="promptSources" placeholder="Quais documentos, dados ou fontes devem ser usados? O que fazer quando faltar informação?"></textarea></label>
+            <label><span>Critérios de qualidade e conclusão</span><textarea id="promptCriteria" placeholder="Como saberemos que a resposta está correta, útil e concluída?"></textarea></label>
+            <label><span>Condições de parada ou escalonamento</span><textarea id="promptEscalation" placeholder="Quando deve parar, pedir aprovação, informar risco ou encaminhar para uma pessoa?"></textarea></label>
             <label><span>Formato da resposta</span><input id="promptFormat" placeholder="Ex.: tabela com problema, impacto, correção e prioridade"></label>
             <label><span>Tom e linguagem</span><input id="promptTone" placeholder="Ex.: direto, técnico e em português do Brasil"></label>
             <div class="prompt-actions"><button class="primary" type="submit">Gerar prompt</button><button id="clearPrompt" class="ghost" type="button">Limpar</button></div>
@@ -65,7 +72,7 @@
           <div class="prompt-result">
             <div class="prompt-result-head"><div><span class="eyebrow">Resultado</span><h3>Prompt gerado</h3></div><button id="copyPrompt" class="ghost" type="button">Copiar prompt</button></div>
             <textarea id="promptOutput" readonly placeholder="O prompt gerado aparecerá aqui..."></textarea>
-            <p class="prompt-tip">Revise o resultado antes de usar. Um bom prompt não elimina a necessidade de verificar fatos, código, decisões e riscos.</p>
+            <p class="prompt-tip">Revise conflitos entre as instruções antes de usar. Um prompt bem estruturado reduz desvios, mas não elimina a necessidade de verificar fatos, código, decisões e riscos.</p>
           </div>
         </div>
       </section>
@@ -73,6 +80,6 @@
     </main>
   </div>
   <div id="modalBackdrop" class="modal-backdrop"><div id="modal" class="modal"></div></div>
-  <script src="data.js?v=20260719-9"></script><script src="videos.js?v=20260719-9"></script><script src="maestros-videos.js?v=20260719-9"></script><script src="firebase-config.js?v=20260719-9"></script><script src="app.js?v=20260720-1"></script><script type="module" src="videos-app.js?v=20260719-9"></script>
+  <script src="data.js?v=20260719-9"></script><script src="videos.js?v=20260719-9"></script><script src="maestros-videos.js?v=20260719-9"></script><script src="firebase-config.js?v=20260719-9"></script><script src="app.js?v=20260720-2"></script><script type="module" src="videos-app.js?v=20260719-9"></script>
 </body>
 </html>
