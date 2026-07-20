@@ -9,7 +9,8 @@ const labels={
   ferramentas:['Glossário prático','Ferramentas de IA'],
   videos:['Aprendizado em vídeo','Vídeos'],
   ideias:['Produtos e experimentos','Ideias'],
-  estudos:['Aprendizado organizado','Estudos']
+  estudos:['Aprendizado organizado','Estudos'],
+  prompts:['Engenharia de contexto','Prompts']
 };
 
 function initials(n){return n.split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase()}
@@ -90,6 +91,48 @@ function renderIdeas(){
 function renderTracks(){
   $('#tracks').innerHTML=DB.tracks.map(i=>`<article class="content-card"><span class="eyebrow">Trilha</span><h3>${i.t}</h3><p>${i.d}</p><div class="chips">${i.tags.map(s=>`<span class="chip">${s}</span>`).join('')}</div></article>`).join('');
 }
+
+function generatePrompt(){
+  const role=$('#promptRole')?.value.trim();
+  const objective=$('#promptObjective')?.value.trim();
+  const context=$('#promptContext')?.value.trim();
+  const tasks=$('#promptTasks')?.value.trim();
+  const limits=$('#promptLimits')?.value.trim();
+  const criteria=$('#promptCriteria')?.value.trim();
+  const format=$('#promptFormat')?.value.trim();
+  const tone=$('#promptTone')?.value.trim();
+  const parts=[];
+
+  if(role)parts.push(`Atue como ${role}.`);
+  if(objective)parts.push(`\nObjetivo:\n${objective}`);
+  if(context)parts.push(`\nContexto:\n${context}`);
+  if(tasks)parts.push(`\nTarefas:\n${tasks}`);
+  if(limits)parts.push(`\nLimites e restrições:\n${limits}`);
+  if(criteria)parts.push(`\nCritérios de qualidade:\n${criteria}`);
+  if(format)parts.push(`\nFormato da resposta:\n${format}`);
+  if(tone)parts.push(`\nTom e linguagem:\n${tone}`);
+  parts.push('\nNão invente informações. Quando faltar contexto, informe claramente as suposições adotadas.');
+
+  $('#promptOutput').value=parts.join('').trim();
+}
+
+$('#promptForm')?.addEventListener('submit',e=>{e.preventDefault();generatePrompt()});
+$('#copyPrompt')?.addEventListener('click',async()=>{
+  const output=$('#promptOutput');
+  if(!output.value)generatePrompt();
+  try{
+    await navigator.clipboard.writeText(output.value);
+    $('#copyPrompt').textContent='✓ Prompt copiado';
+    setTimeout(()=>$('#copyPrompt').textContent='Copiar prompt',1800);
+  }catch{
+    output.select();
+    document.execCommand('copy');
+  }
+});
+$('#clearPrompt')?.addEventListener('click',()=>{
+  $('#promptForm').reset();
+  $('#promptOutput').value='';
+});
 
 renderStats();
 renderNeeds();
