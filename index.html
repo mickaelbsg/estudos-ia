@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Portal de estudos, ideias, vídeos e ferramentas de inteligência artificial.">
+  <meta name="theme-color" content="#08111f">
   <title>Estudos sobre IA</title>
+  <link rel="icon" type="image/svg+xml" href="assets/ia-logo.svg">
+  <link rel="apple-touch-icon" href="assets/ia-logo.svg">
   <link rel="stylesheet" href="styles.css?v=20260720-2">
   <link rel="stylesheet" href="videos.css?v=20260719-9">
   <link rel="stylesheet" href="prompts.css?v=20260720-1">
-  <link rel="stylesheet" href="ui-refactor.css?v=20260720-1">
+  <link rel="stylesheet" href="ui-refactor.css?v=20260720-2">
 </head>
 <body>
   <div class="ambient"></div>
   <div class="layout">
     <aside id="sidebar">
-      <div class="brand"><span class="brand-icon">IA</span><div><strong>Estudos sobre IA</strong><small>Base pessoal de conhecimento</small></div></div>
+      <div class="brand"><img class="brand-icon" src="assets/ia-logo.svg" alt=""><div><strong>Estudos sobre IA</strong><small>Base pessoal de conhecimento</small></div></div>
       <nav>
         <button class="nav active" data-page="inicio"><span>⌂</span>Início</button>
         <button class="nav" data-page="ferramentas"><span>◈</span>Ferramentas</button>
@@ -23,12 +26,6 @@
         <button class="nav" data-page="estudos"><span>◎</span>Estudos</button>
         <button class="nav" data-page="prompts"><span>✎</span>Prompts</button>
       </nav>
-      <div class="side-note">
-        <strong>Fonte de consulta</strong>
-        <p>O portal organiza ferramentas, ideias, vídeos e estudos para facilitar decisões práticas.</p>
-        <a href="https://docs.google.com/document/d/1LqZxY_WTqXio3QYfyIadmE_aLwbAhZ8Lhgip_8sEdYE/edit" target="_blank" rel="noopener">Glossário no Google Docs ↗</a>
-        <a href="https://docs.google.com/document/d/1PRg_bJqqzHXs1equUNWxqqywGpm_HCtGZFI9PWnmgNk/edit" target="_blank" rel="noopener">Anotações no Google Docs ↗</a>
-      </div>
     </aside>
     <main>
       <header class="topbar"><div><span id="eyebrow" class="eyebrow">Base de conhecimento</span><h1 id="pageTitle">Painel de IA</h1></div><div class="top-actions"><button id="favoritesButton" class="ghost desktop">☆ Favoritos</button><button id="videoLoginButton" class="ghost auth-button" type="button">Entrar com Google</button><button id="menuButton" class="ghost mobile">☰</button></div></header>
